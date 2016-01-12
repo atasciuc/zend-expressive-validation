@@ -10,6 +10,7 @@ composer require atasciuc/zend-expressive-validation
 ```
 
 ## Usage
+### 1. ----
 Create a validator factory
 ```php
 /**
@@ -34,27 +35,7 @@ class YourValidatorFactoryClass
 ## Note:
 The entityManager is optional and required only if you want to use database validation classes such as `EntityExist`
 
-```
-/**
- * Instantiates the validator
- * Class ValidatorFactory
- * @package SchedulerApi\Validators
- */
-class ValidatorFactory
-{
-    public function __invoke(ContainerInterface $container)
-    {
-        /** @var EntityManagerInterface $entityManager */
-        $entityManager = $container->get('orm.default');
-        return new Validator(
-            $container->get(OptionsExtractor::class),
-            $container->get(RouterInterface::class),
-            $entityManager
-        );
-    }
-}
-```
-
+### 2. ----
 Add the validator classes to the `dependecies.php` of your project
 ```php
 <?php
@@ -85,6 +66,7 @@ return [
 ];
 
 ```
+### 3. ----
 Edit your `middleware-pipeline.global` and register the validation middlewares
 ```php
 <?php   
@@ -161,6 +143,7 @@ class ErrorMiddleware
 }
 ```
 
+### 4. ----
 To your route add the validation to the route:
 ```php
 'routes' => [
@@ -233,7 +216,7 @@ class GetUserValidationRules implements ValidationRulesInterface
     }
 }
 ```
-
+### 5.  ----
 Now in your action you can extract the validated data:
 ```php
  public function __invoke(Request $request, Response $response, callable $next = null)
@@ -243,3 +226,8 @@ Now in your action you can extract the validated data:
         return $next($request, new JsonResponse($data));
     }
 ```
+
+### That it is it
+
+## ToDo
+[] - add docs to the validation classes
