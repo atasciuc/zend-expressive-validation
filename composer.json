@@ -6,6 +6,7 @@
             "name": "Alexandr Tasciuc"
         }
     ],
+    "minimum-stability": "stable",
     "repositories": [
     ],
     "require": {
