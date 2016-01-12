@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="FlexShopper Coding Standard">
+<ruleset name="Coding Standard">
     <description>Zend Framework coding standard</description>
 
     <!-- display progress -->
@@ -16,6 +16,5 @@
     </rule>
 
     <!-- Paths to check -->
-    <file>modules</file>
-    <file>dev-modules</file>
+    <file>src</file>
 </ruleset>
