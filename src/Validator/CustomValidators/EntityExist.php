@@ -3,7 +3,7 @@ namespace ExpressiveValidator\Validator\CustomValidators;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
-use StdLib\Validator\DbValidatorInterface;
+use ExpressiveValidator\Validator\DbValidatorInterface;
 use Zend\Validator\AbstractValidator;
 use Zend\Validator\Db\RecordExists;
 

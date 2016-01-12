@@ -2,7 +2,6 @@
 namespace ExpressiveValidator\Validator\CustomValidators;
 
 use Doctrine\ORM\EntityManagerInterface;
-use StdLib\Validator\DbValidatorInterface;
 use Zend\Validator\AbstractValidator;
 use Zend\Validator\Db\RecordExists;
 

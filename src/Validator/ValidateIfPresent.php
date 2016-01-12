@@ -2,7 +2,7 @@
 namespace ExpressiveValidator\Validator;
 
 use Doctrine\ORM\EntityManagerInterface;
-use StdLib\Validator\DbValidatorInterface;
+use ExpressiveValidator\Validator\DbValidatorInterface;
 use Zend\Validator\AbstractValidator;
 use Zend\Validator\Db\RecordExists;
 use Zend\Validator\NotEmpty;
