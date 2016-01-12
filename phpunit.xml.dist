@@ -1,0 +1,20 @@
+<phpunit bootstrap="./test/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="StdLib Tests">
+            <directory>./test/StdLib/src</directory>
+            <directory>./test/SchedulerApi/src</directory>
+            <directory>./test/Billing/src</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">modules</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-clover" target="./clover.xml" />
+        <log type="coverage-html" target="./coverage-report" />
+    </logging>
+</phpunit>

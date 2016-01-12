@@ -1,0 +1,30 @@
+language: php
+php:
+  - 7
+
+services:
+  - mysql
+
+before_install:
+  - sh -c "mv config/.env.travis config/.env"
+  - sh -c "mv tests/functional.suite.yml.travis tests/functional.suite.yml"
+
+install:
+  - travis_retry composer install --no-interaction -o
+
+before_script:
+  - mysql -e 'create database billing';
+  - php vendor/bin/doctrine orm:generate-proxies
+  - php vendor/bin/doctrine orm:schema-tool:create
+  - php bin/app fixtures:load --purge
+  - php -S localhost:8000 -t public/ public/index.php &
+  - sleep 3
+
+script:
+  - php vendor/squizlabs/php_codesniffer/scripts/phpcs
+  - php vendor/bin/codecept run --steps
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache

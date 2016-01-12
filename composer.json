@@ -1,0 +1,64 @@
+{
+    "name": "atasciuc/zend-expressive-validation",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Alexandr Tasciuc"
+        }
+    ],
+    "repositories": [
+    ],
+    "require": {
+        "roave/security-advisories": "dev-master",
+        "zendframework/zend-expressive": "^0.5",
+        "zendframework/zend-stdlib": "~2.7",
+        "zendframework/zend-expressive-fastroute": "^0.1",
+        "zendframework/zend-servicemanager": "^2.5",
+        "ocramius/proxy-manager": "^1.0",
+        "mrferos/expressive-http-method": "^1.0.0",
+        "mrferos/expressive-hateoas": "@dev",
+        "doctrine/orm": "*",
+        "symfony/console": "^2.7",
+        "vlucas/phpdotenv": "^2.1",
+        "monolog/monolog": "^1.17",
+        "videlalvaro/php-amqplib": "2.5.*",
+        "zendframework/zend-validator": "^2.5",
+        "zendframework/zend-http": "^2.5",
+        "zendframework/zend-i18n": "^2.5",
+        "zendframework/zend-filter": "^2.5",
+        "gedmo/doctrine-extensions": "^2.4",
+        "symfony/serializer": "^2.7",
+        "doctrine/doctrine-module": "0.*",
+        "mtdowling/cron-expression": "^1.0",
+        "nesbot/carbon": "^1.21",
+        "fzaninotto/faker": "~1.5.0",
+        "codeception/codeception": "*"
+    },
+    "require-dev": {
+        "composer/composer": ">=1.0.0-alpha10",
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "^2.3",
+        "filp/whoops": "^1.1",
+        "robmorgan/phinx": "^0.4.6",
+        "fzaninotto/faker": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ExpressiveValidator\\": "src"
+        },
+        "files": [
+            "src/Helpers/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ExpressiveValidator\\Test\\": "tests/unit/ExpressiveValidator/src/Test",
+            "ExpressiveValidatorFixture\\Test\\": "tests/unit/fixtures"
+        }
+    },
+    "scripts": {
+        "test": [
+            "php vendor/squizlabs/php_codesniffer/scripts/phpcs"
+        ]
+    }
+}
