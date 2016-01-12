@@ -1,15 +1,26 @@
 {
     "name": "atasciuc/zend-expressive-validation",
-    "type": "project",
+    "type": "library",
+    "description": "PSR-7 Validation middleware for zend-expressive",
     "authors": [
         {
             "name": "Alexandr Tasciuc"
         }
     ],
+    "license": "BSD-3-Clause",
     "minimum-stability": "stable",
     "repositories": [
     ],
+    "keywords": [
+        "http",
+        "zend",
+        "expressive",
+        "validation",
+        "psr",
+        "psr-7"
+    ],
     "require": {
+        "php": "^5.5 || ^7.0",
         "roave/security-advisories": "dev-master",
         "zendframework/zend-expressive": "^0.5",
         "zendframework/zend-stdlib": "~2.7",
