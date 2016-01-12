@@ -10,7 +10,6 @@ use Zend\Expressive\Router\RouterInterface;
 /**
  * Instantiates the validator
  * Class ValidatorFactory
- * @package SchedulerApi\Validators
  */
 class ValidatorFactory
 {

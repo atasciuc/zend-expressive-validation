@@ -6,7 +6,6 @@ use Exception;
 use ExpressiveValidator\Exception\EntityNotFoundException;
 use ExpressiveValidator\Exception\MethodNotAllowedException;
 use ExpressiveValidator\Response\JsonExceptionResponse;
-use MrfExpressive\MethodNotImplementedException;
 use PHPUnit_Framework_MockObject_MockObject;
 use PHPUnit_Framework_TestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -51,10 +50,6 @@ class ErrorMiddlewareTest extends PHPUnit_Framework_TestCase
         $errorMiddleware->__invoke($this->getMock(EntityNotFoundException::class),
             $this->request,
             $this->response, $next);
-        $errorMiddleware->__invoke($this->getMock(MethodNotImplementedException::class),
-            $this->request,
-            $this->response, $next);
-
 
         $error = $this->getMock(ValidationFailedException::class);
         $error->expects($this->once())

@@ -46,7 +46,7 @@ class Validator implements ValidatorInterface
     public function __construct(
         OptionsExtractor $optionsExtractor,
         RouterInterface $router,
-        EntityManagerInterface $entityManagerInterface
+        EntityManagerInterface $entityManagerInterface = null
     ) {
         $this->optionsExtractor = $optionsExtractor;
         $this->router = $router;

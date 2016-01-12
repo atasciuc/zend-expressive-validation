@@ -2,7 +2,6 @@
 namespace ExpressiveValidator\Middleware;
 
 use Exception;
-use MrfExpressive\MethodNotImplementedException;
 use Psr\Http\Message\ResponseInterface;
 use ExpressiveValidator\Exception\EntityNotFoundException;
 use ExpressiveValidator\Exception\MethodNotAllowedException;
@@ -37,8 +36,6 @@ class ErrorMiddleware
         switch (true) {
             case $error instanceof MethodNotAllowedException || $error instanceof EntityNotFoundException:
                 return $out($request, new JsonExceptionResponse($error->getCode(), $error->getMessage()));
-            case ($error instanceof MethodNotImplementedException):
-                return $out($request, new JsonExceptionResponse(400, $error->getMessage()));
             case ($error instanceof ValidationFailedException):
                 $messages = $error->getValidationResult()->getMessages();
                 return $out($request, new JsonExceptionResponse(
