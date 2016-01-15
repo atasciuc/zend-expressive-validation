@@ -55,6 +55,11 @@ class RequestValidator extends Request
         $this->parsedBody = array_merge(parent::getParsedBody(), $this->parameters);
     }
 
+    public function __call($name, $arguments)
+    {
+        return call_user_func_array([$this->request, $name], $arguments);
+    }
+
     /**
      * @inheritdoc
      */
