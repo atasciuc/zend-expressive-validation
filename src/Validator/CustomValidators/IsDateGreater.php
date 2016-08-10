@@ -14,6 +14,8 @@ class IsDateGreater extends AbstractValidator
 {
     const INVALID = "notValid";
 
+    protected $dateFormat = \DateTime::ISO8601;
+
     /**
      * @var DateInterval
      */
@@ -47,7 +49,14 @@ class IsDateGreater extends AbstractValidator
             $this->minDate = Carbon::now();
         } elseif (isset($options['minDate']) && !$options['minDate'] instanceof DateTime) {
             throw new \InvalidArgumentException('Invalid datetime object');
+        } else {
+            $this->minDate = Carbon::instance($options['minDate']);
         }
+
+        if ($options && isset($options['dateFormat'])) {
+            $this->setDateFormat($options['dateFormat']);
+        }
+
         parent::__construct($options);
     }
     /**
@@ -56,11 +65,27 @@ class IsDateGreater extends AbstractValidator
     public function isValid($value)
     {
         $this->setValue($value);
-        $datePassed = new Carbon($value);
+        $datePassed = Carbon::createFromFormat($this->getDateFormat(), $value);
         if ($datePassed->lte($this->minDate)) {
             $this->error(self::INVALID);
             return false;
         }
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateFormat()
+    {
+        return $this->dateFormat;
+    }
+
+    /**
+     * @param string $dateFormat
+     */
+    public function setDateFormat($dateFormat)
+    {
+        $this->dateFormat = $dateFormat;
     }
 }
