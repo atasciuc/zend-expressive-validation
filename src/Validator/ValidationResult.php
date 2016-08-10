@@ -253,7 +253,7 @@ class ValidationResult implements ValidationResultInterface
             $this->errorMessages[$propertyItem],
             array_values($messages)
         );
-        $this->errorMessages = flatten($this->errorMessages);
+
         return $this;
     }
     /**

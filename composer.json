@@ -32,7 +32,8 @@
         "doctrine/doctrine-module": "0.*",
         "mtdowling/cron-expression": "^1.0",
         "nesbot/carbon": "^1.21",
-        "fzaninotto/faker": "~1.5.0"
+        "fzaninotto/faker": "~1.5.0",
+        "los/api-problem": "^0.9.0"
     },
     "require-dev": {
         "composer/composer": ">=1.0.0-alpha10",
