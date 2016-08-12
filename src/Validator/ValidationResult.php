@@ -249,7 +249,7 @@ class ValidationResult implements ValidationResultInterface
         if (!isset($this->errorMessages[$propertyItem])) {
             $this->errorMessages[$propertyItem] = [];
         }
-        $this->errorMessages[$propertyItem][] = array_merge(
+        $this->errorMessages[$propertyItem]= array_merge(
             $this->errorMessages[$propertyItem],
             array_values($messages)
         );
