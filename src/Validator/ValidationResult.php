@@ -58,7 +58,7 @@ class ValidationResult implements ValidationResultInterface
     public function __construct(
         array $dataToValidate,
         ValidationRulesInterface $rulesInterface,
-        EntityManagerInterface $entityManagerInterface,
+        EntityManagerInterface $entityManagerInterface = null,
         ServerRequestInterface $request
     ) {
         $this->rules = $rulesInterface;
