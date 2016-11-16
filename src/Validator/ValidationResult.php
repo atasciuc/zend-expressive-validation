@@ -58,7 +58,7 @@ class ValidationResult implements ValidationResultInterface
     public function __construct(
         array $dataToValidate,
         ValidationRulesInterface $rulesInterface,
-        EntityManagerInterface $entityManagerInterface,
+        EntityManagerInterface $entityManagerInterface = null,
         ServerRequestInterface $request
     ) {
         $this->rules = $rulesInterface;
@@ -249,11 +249,11 @@ class ValidationResult implements ValidationResultInterface
         if (!isset($this->errorMessages[$propertyItem])) {
             $this->errorMessages[$propertyItem] = [];
         }
-        $this->errorMessages[$propertyItem][] = array_merge(
+        $this->errorMessages[$propertyItem]= array_merge(
             $this->errorMessages[$propertyItem],
             array_values($messages)
         );
-        $this->errorMessages = flatten($this->errorMessages);
+
         return $this;
     }
     /**

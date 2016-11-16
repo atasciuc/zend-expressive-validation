@@ -39,7 +39,7 @@ class ValidationMiddleware implements MiddlewareInterface
          */
         $validationResult = $this->validator->validate($request);
         if (!is_bool($validationResult) && $validationResult->notValid()) {
-            $validationException = new ValidationFailedException();
+            $validationException = new ValidationFailedException('Validation Failed');
             $validationException->setValidationResult($validationResult);
             throw $validationException;
         } elseif (!is_bool($validationResult)) {    // Valid

@@ -21,20 +21,19 @@
     "require": {
         "php": "^5.5 || ^7.0",
         "roave/security-advisories": "dev-master",
-        "zendframework/zend-expressive": "^0.5",
-        "zendframework/zend-stdlib": "~2.7",
-        "zendframework/zend-expressive-fastroute": "^0.1",
-        "zendframework/zend-servicemanager": "^2.5",
-        "doctrine/orm": "*",
+        "zendframework/zend-expressive": "1.0",
+        "zendframework/zend-stdlib": "^3.0",
+        "doctrine/orm": "^2.5",
         "zendframework/zend-validator": "^2.5",
         "zendframework/zend-http": "^2.5",
         "zendframework/zend-i18n": "^2.5",
         "zendframework/zend-filter": "^2.5",
         "symfony/serializer": "^2.7",
-        "doctrine/doctrine-module": "0.*",
+        "doctrine/doctrine-module": "^2.*",
         "mtdowling/cron-expression": "^1.0",
         "nesbot/carbon": "^1.21",
-        "fzaninotto/faker": "~1.5.0"
+        "fzaninotto/faker": "~1.5.0",
+        "los/api-problem": "^0.9.0"
     },
     "require-dev": {
         "composer/composer": ">=1.0.0-alpha10",

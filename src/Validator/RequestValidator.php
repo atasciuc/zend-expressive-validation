@@ -11,10 +11,7 @@ use Zend\Stratigility\Http\Request;
 
 class RequestValidator extends Request
 {
-    /**
-     * @var ServerRequestInterface
-     */
-    private $request;
+
     /**
      * @var array
      */
@@ -41,64 +38,19 @@ class RequestValidator extends Request
      */
     public function __construct(ServerRequestInterface $request, RouterInterface $router)
     {
-
-        $this->request = $request;
-        parent::__construct($this);
+        parent::__construct($request);
         $this->parameters = $this->parseIncomingParams();
         $this->parameters = array_merge(
             $this->parameters,
-            $this->request->getParsedBody(),
+            $this->getParsedBody(),
             $this->getParsedAttributes($request, $router),
             $this->getQueryParams(),
-            $this->request->getUploadedFiles()
+            $this->getUploadedFiles()
         );
-        $this->parsedBody = array_merge(parent::getParsedBody(), $this->parameters);
+        $this->parsedBody = array_merge($this->getParsedBody(), $this->parameters);
     }
 
-    public function getHeaders()
-    {
-        return $this->request->getHeaders();
-    }
-
-
-    public function getHeader($name)
-    {
-        return $this->request->getHeader($name);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getMethod()
-    {
-        return $this->request->getMethod();
-    }
-    /**
-     * @inheritdoc
-     */
-    public function withAttribute($name, $default = null)
-    {
-        $new = clone $this;
-        $new->attributes[$name] = $default;
-        return $new;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getAttribute($name, $default = null)
-    {
-        return isset($this->attributes[$name]) ? $this->attributes[$name] : $default;
-    }
-
-    /**
-     * @return \Psr\Http\Message\UriInterface
-     */
-    public function getUri()
-    {
-        return $this->request->getUri();
-    }
-
+    
     /**
      * @param $key
      * @param $default
@@ -116,9 +68,9 @@ class RequestValidator extends Request
     {
         $parameters = [];
 
-        $server = $this->request->getServerParams();
+        $server = $this->getServerParams();
 
-        $body = $this->request->getBody();
+        $body = $this->getBody();
 
         $content_type = false;
         if (isset($server['CONTENT_TYPE'])) {
@@ -152,13 +104,7 @@ class RequestValidator extends Request
         return $this->parsedBody;
     }
 
-    /**
-     * @return array
-     */
-    public function getQueryParams()
-    {
-        return $this->request->getQueryParams();
-    }
+
     /**
      * Gets the validation result
      * @return ValidationResultInterface
